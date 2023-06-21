@@ -1,10 +1,11 @@
 import Head from "next/head";
-import { Header } from "../components";
+import { Header, Hero } from "../components";
 import { useEffect } from "react";
 import { API_REQUEST } from "../services/api.service";
 import { GetServerSideProps } from "next";
+import { IMovie } from "../interfaces/app.interface";
 
-export default function Home(props: HomeProps): JSX.Element {
+export default function Home({ trending }: HomeProps): JSX.Element {
   useEffect(() => {
     fetch(API_REQUEST.trending)
       .then((res) => res.json())
@@ -20,8 +21,8 @@ export default function Home(props: HomeProps): JSX.Element {
         <link rel="icon" href="/logo.svg" />
       </Head>
       <Header />
-      <main>
-        {/* NOTE - HERO */}
+      <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16">
+        <Hero trending={trending} />
         <section>
           {/* Row */}
           {/* BigRow */}
@@ -38,11 +39,11 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
 
   return {
     props: {
-      trending,  
+      trending,
     },
   };
 };
 
 interface HomeProps {
-  trending: any;
+  trending: IMovie[];
 }
