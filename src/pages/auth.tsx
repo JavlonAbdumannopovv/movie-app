@@ -1,18 +1,16 @@
-import Head from "next/head";
-import React from "react";
+import Head from 'next/head';
 
 const Auth = () => {
-  return (
-    <>
-      <Head>
-        <title>Movie App | Auth</title>
-        <meta name="description" content="For watching movies should sign to app" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div>Auth</div>
-    </>
-  );
+	return (
+		<>
+			<Head>
+				<title>Auth</title>
+				<meta name='description' content='For watching movies you should sign to app' />
+				<meta name='viewport' content='width=device-width, initial-scale=1' />
+				<link rel='icon' href='/favicon.ico' />
+			</Head>
+		</>
+	);
 };
 
 export default Auth;
