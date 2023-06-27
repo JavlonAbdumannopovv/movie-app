@@ -10,7 +10,7 @@ const Auth = () => {
   };
 
   return (
-    <>
+    <div className="relative flex h-screen w-screen flex-col md:items-center justify-center bg-black md:bg-transparent">
       <Head>
         <title>Auth</title>
         <meta
@@ -21,6 +21,8 @@ const Auth = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Image src={"https://rg.by/p2hphi"} alt="background" fill className="object-cover -z-10 !hidden sm:!inline opacity-40"/>
+
       <Image
         src={"/logo.svg"}
         alt={"logo"}
@@ -29,7 +31,7 @@ const Auth = () => {
         className={"absolute left-4 top-4 cursor-pointer object-contain"}
       />
 
-      <form className="relative mt-24 space-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 md:max-w-md md:mx-14">
+      <form className="relative mt-24 space-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 md:max-w-md md:px-14">
         <h1 className="text-4xl font-semibold">
           {auth === "signup" ? "Sign up" : "Sign in"}
         </h1>
@@ -84,7 +86,7 @@ const Auth = () => {
           </div>
         )}
       </form>
-    </>
+    </div>
   );
 };
 
