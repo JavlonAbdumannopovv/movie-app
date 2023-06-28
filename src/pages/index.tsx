@@ -30,9 +30,9 @@ export default function Home({
 					<Row title='Tv Show' movies={tvTopRated} isBig={true} />
 					<Row title='Popular' movies={popular} isBig={true} />
 					<Row title='Documentary' movies={documentary.reverse()} />
-					<Row title='History' movies={history} isBig={true}/>
-					<Row title='Family' movies={family.reverse()} />
-					<Row title='Comedy' movies={comedy} />
+					<Row title='History' movies={history} />
+					<Row title='Family' movies={family} />
+					<Row title='Comedy' movies={comedy.reverse()} />
 				</section>
 			</main>
 		</div>
