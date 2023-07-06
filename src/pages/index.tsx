@@ -1,8 +1,11 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
+import { useContext } from 'react';
 import { Header, Hero, Row } from 'src/components';
+import { AuthContext } from 'src/context/auth.context';
 import { IMovie } from 'src/interfaces/app.interface';
 import { API_REQUEST } from 'src/services/api.service';
+import { useInfoStore } from 'src/store';
 
 export default function Home({
 	trending,
@@ -14,6 +17,11 @@ export default function Home({
 	history,
 	comedy,
 }: HomeProps): JSX.Element {
+	const { setModal, modal } = useInfoStore();
+	const { isLoading } = useContext(AuthContext);
+
+	if (isLoading) return <>{null}</>;
+
 	return (
 		<div className='relative min-h-screen'>
 			<Head>
@@ -23,6 +31,7 @@ export default function Home({
 				<link rel='icon' href='/logo.svg' />
 			</Head>
 			<Header />
+
 			<main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16'>
 				<Hero trending={trending} />
 				<section>
