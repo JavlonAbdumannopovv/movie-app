@@ -17,6 +17,11 @@ export const useAuth = () => {
 			.then(res => {
 				setUser(res.user);
 				router.push('/');
+				fetch("/api/customer", {
+					method: "POST",
+					body: JSON.stringify({email:res.user.email, user_id: res.user.uid})
+				});
+				Cookies.set("user_id", res.user.uid);
 				setIsLoading(true);
 			})
 			.catch(error => setError(error.message))
@@ -30,6 +35,7 @@ export const useAuth = () => {
 			.then(res => {
 				setUser(res.user);
 				router.push('/');
+				Cookies.set("user_id", res.user.uid);
 				setIsLoading(true);
 			})
 			.catch(error => setError(error.message))
@@ -37,6 +43,7 @@ export const useAuth = () => {
 	};
 
 	const logout = async () => {
+		Cookies.remove("user_id");
 		setIsLoading(true);
 
 		signOut(auth)
