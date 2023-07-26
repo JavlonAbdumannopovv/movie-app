@@ -24,6 +24,7 @@ export const AuthContext = createContext<AuthContextState>({
 const AuthContextProvider = ({ children }: { children: ReactNode }) => {
 	const [initialLoader, setInitialLoader] = useState<boolean>(true);
 	const { error, isLoading, logout, signIn, signUp, user, setUser, setIsLoading } = useAuth();
+
 	const value = useMemo(
 		() => ({
 			user,
@@ -54,7 +55,7 @@ const AuthContextProvider = ({ children }: { children: ReactNode }) => {
 		[]
 	);
 
-	return <AuthContext.Provider value={value}>{!initialLoader ? children : 'Loading...'}</AuthContext.Provider>;
+	return <AuthContext.Provider value={value}>{!initialLoader ? children : null}</AuthContext.Provider>;
 };
 
 export default AuthContextProvider;
