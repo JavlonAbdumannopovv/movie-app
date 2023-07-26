@@ -4,8 +4,7 @@ Full stack app with subscription plan. The customer can log in and register on t
 
 # Demo
 
-https://sammi-app-movie.vercel.app/auth
-
+https://movie-app-javlonabdumannopov.vercel.app/auth
 # Stack
 
 - NextJS
